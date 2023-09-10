@@ -27,7 +27,20 @@ const peliculaReciente = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
     const año = req.params.anio;
-    conn.query(`select * from Peliculas where Año_Publicación >= ${año}; `, (err, rows) => {
+    conn.query(`select * from Peliculas where Año_Publicación >= 2010; `, (err, rows) => {
+      if (err) return res.send(err);
+
+      res.json(rows);
+    })
+  })
+}
+
+
+const peliculaPopular = (req, res) => {
+  req.getConnection((err, conn) => {
+    if (err) return res.send(err);
+    const año = req.params.anio;
+    conn.query(`select * from Peliculas where Can_Vistas >= 100; `, (err, rows) => {
       if (err) return res.send(err);
 
       res.json(rows);
@@ -37,11 +50,14 @@ const peliculaReciente = (req, res) => {
 
 
 
+
+
 //? Export de las arrowfunction.
 //* Esto nos permite tener un codigo mas limpio en index.
 module.exports = {
   obtenerPeliculas,
-  peliculaReciente
+  peliculaReciente,
+  peliculaPopular
 };
 
 

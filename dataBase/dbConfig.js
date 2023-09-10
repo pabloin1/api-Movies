@@ -6,11 +6,11 @@ const mysql = require("mysql");
 
 const dbOptions = {
   //* Aquí creamos la conexión a la DB.
-  host: "localhost",
+  host: "blbmavcpiwgimljsh179-mysql.services.clever-cloud.com",
   port: 3306,
-  user: "root",
-  password: "pablo123",
-  database: "BDD_MoviesIDS",
+  user: "uxonlipaabpy3vwl",
+  password: "x6rXL4O1BvayshsRyjeU",
+  database: "blbmavcpiwgimljsh179",
 };
 
 //? Conectamos a la DB.

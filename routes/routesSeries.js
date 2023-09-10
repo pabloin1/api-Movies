@@ -3,7 +3,7 @@ const { obtenerSeries, serieReciente } = require("../controllers/seriesControlle
 const routesSeries = express.Router();
 
 routesSeries.get("/", obtenerSeries);
-routesSeries.get("/:anio",serieReciente)
+routesSeries.get("/Recientes",serieReciente)
 
 
 module.exports ={routesSeries} ;

@@ -9,7 +9,7 @@ const obtenerSeries = (req, res) => {
 
     conn.query("SELECT * FROM Peliculas", (err, rows) => {
       if (err) return res.send(err);
-
+      
       res.json(rows);
     })
   })
@@ -21,7 +21,7 @@ const serieReciente = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
     const año = req.params.anio;
-    conn.query(`select * from Series where Año_Publicación >= ${año}; `, (err, rows) => {
+    conn.query(`select * from Series where Año_Publicación >= 2000; `, (err, rows) => {
       if (err) return res.send(err);
 
       res.json(rows);
