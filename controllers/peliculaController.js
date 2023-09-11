@@ -27,7 +27,7 @@ const peliculaReciente = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
     const año = req.params.anio;
-    conn.query(`select * from Peliculas where Año_Publicación >= 2010; `, (err, rows) => {
+    conn.query(`select * from Peliculas where Año_Publicación >= 2000; `, (err, rows) => {
       if (err) return res.send(err);
 
       res.json(rows);

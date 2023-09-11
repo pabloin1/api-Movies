@@ -7,7 +7,7 @@ const obtenerSeries = (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
 
-    conn.query("SELECT * FROM Peliculas", (err, rows) => {
+    conn.query("SELECT * FROM Series", (err, rows) => {
       if (err) return res.send(err);
       
       res.json(rows);
@@ -29,9 +29,22 @@ const serieReciente = (req, res) => {
   })
 }
 
+const seriePopular = (req, res) => {
+  req.getConnection((err, conn) => {
+    if (err) return res.send(err);
+    const año = req.params.anio;
+    conn.query(`select * from Series where Can_Vistas > 1200000;`, (err, rows) => {
+      if (err) return res.send(err);
+
+      res.json(rows);
+    })
+  })
+}
+
 //? Export de las arrowfunction.
 //* Esto nos permite tener un codigo mas limpio en index.
 module.exports = {
   obtenerSeries,
-  serieReciente
+  serieReciente,
+  seriePopular
 };
